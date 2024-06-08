@@ -3,6 +3,7 @@ const cors = require("cors")
 const dotenv =require("dotenv").config()
 const connectDB = require("./database/dbfile.js")
 const routes = require("./routes/userRoutes")
+const eventRoutes = require("./routes/eventRoutes")
 
 
 
@@ -34,6 +35,7 @@ app.get("/", (req, res)=>{
 })
 
 app.use("/api", routes)
+app.use("/api", eventRoutes)
 
 app.use((req,res)=>{
     res.status(404).json({
